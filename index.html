@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spartan Smart Gym - Cybernetic Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fondo: #050810;
+            --texto: #e0fbfc;
+            --neon-azul: #00f3ff;
+            --neon-rojo: #d32f2f;
+            --panel-bg: rgba(0, 24, 40, 0.6);
+            --borde-cyber: 1px solid var(--neon-azul);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background-color: var(--fondo);
+            color: var(--texto);
+            line-height: 1.6;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            scroll-behavior: smooth;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: rgba(5, 8, 16, 0.95);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--neon-rojo);
+            box-shadow: 0 0 15px rgba(211, 47, 47, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-container img {
+            width: 50px; height: 50px; border-radius: 50%;
+            box-shadow: 0 0 10px var(--neon-azul);
+        }
+
+        nav a {
+            color: var(--texto);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 700;
+            font-size: 13px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        nav a:hover { color: var(--neon-azul); text-shadow: 0 0 8px var(--neon-azul); }
+
+        /* --- HERO --- */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(5, 8, 16, 0.7), rgba(5, 8, 16, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1400') center/cover;
+            border-bottom: 1px solid var(--neon-azul);
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px var(--neon-azul);
+            margin-bottom: 20px;
+        }
+
+        /* --- TARJETAS DE MEMBRESÍA --- */
+        .grid-planes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .plan {
+            background: var(--panel-bg);
+            border: var(--borde-cyber);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .plan:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px var(--neon-azul);
+        }
+
+        .plan.popular { border: 2px solid var(--neon-rojo); }
+
+        .btn-compra {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: transparent;
+            color: var(--neon-azul);
+            border: 1px solid var(--neon-azul);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-compra:hover { background: var(--neon-azul); color: #000; }
+
+        /* --- TABLA --- */
+        .tabla-horarios {
+            width: 100%; max-width: 800px; margin: 20px auto;
+            border-collapse: collapse; background: var(--panel-bg);
+            border: var(--borde-cyber);
+        }
+        .tabla-horarios th, .tabla-horarios td {
+            padding: 15px; border: 1px solid rgba(0, 243, 255, 0.2);
+            text-align: center;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 60px 20px;
+            background: #020305;
+            border-top: 2px solid var(--neon-rojo);
+            text-align: center;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Logo">
+            <h1>Spartan Smart</h1>
+        </div>
+        <nav>
+            <a href="#planes">Planes</a>
+            <a href="#horarios">Horarios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Sube de Nivel</h2>
+        <p>Entrenamiento de fuerza con precisión digital.</p>
+        <a href="#planes" class="btn-compra" style="border-color: var(--neon-rojo); color: var(--neon-rojo);">Ver Protocolos</a>
+    </section>
+
+    <section id="planes" class="seccion" style="padding-top: 60px;">
+        <h3 style="text-align: center; color: var(--neon-azul);">Protocolos de Entrenamiento</h3>
+        <div class="grid-planes">
+            <div class="plan">
+                <h4>BASIC</h4>
+                <p style="font-size: 24px; margin: 15px 0;">$15.000</p>
+                <ul style="list-style: none; font-size: 12px; color: #ccc;">
+                    <li>Pesas y Cardio</li>
+                    <li>Acceso Limitado</li>
+                </ul>
+                <a href="https://wa.me/5493513536101" class="btn-compra">Seleccionar</a>
+            </div>
+            <div class="plan popular">
+                <h4 style="color: var(--neon-rojo);">ELITE</h4>
+                <p style="font-size: 24px; margin: 15px 0;">$25.000</p>
+                <ul style="list-style: none; font-size: 12px; color: #ccc;">
+                    <li>Acceso Ilimitado</li>
+                    <li>IA Personalizada</li>
+                </ul>
+                <a href="https://wa.me/5493513536101" class="btn-compra" style="border-color: var(--neon-rojo); color: var(--neon-rojo);">Seleccionar</a>
+            </div>
+            <div class="plan">
+                <h4>SPARTAN</h4>
+                <p style="font-size: 24px; margin: 15px 0;">$40.000</p>
+                <ul style="list-style: none; font-size: 12px; color: #ccc;">
+                    <li>Coach Personal</li>
+                    <li>Acceso VIP</li>
+                </ul>
+                <a href="https://wa.me/5493513536101" class="btn-compra">Seleccionar</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="horarios" class="seccion" style="padding: 40px 20px;">
+        <h3 style="text-align: center; color: var(--neon-azul); margin-bottom: 20px;">Sincronización horaria</h3>
+        <table class="tabla-horarios">
+            <tr><th>Día</th><th>Mañana</th><th>Tarde</th></tr>
+            <tr><td>Lunes a Viernes</td><td>07:00 - 11:30</td><td>15:00 - 22:00</td></tr>
+            <tr><td>Sábados</td><td colspan="2">Cerrado (Mantenimiento)</td></tr>
+        </table>
+    </section>
+
+    <footer id="contacto">
+        <h3>Contacto Digital</h3>
+        <p style="margin-top: 10px;">📍 Salta y Av. Córdoba 3212 - Córdoba</p>
+        <a href="https://wa.me/5493513536101" class="btn-whatsapp">Contactar vía WhatsApp</a>
+        <div style="margin-top: 20px;">
+            <a href="https://www.instagram.com/spartan_gym_fit" style="color: var(--neon-azul); text-decoration: none;">Instagram: @spartan_gym_fit</a>
+        </div>
+    </footer>
+
+</body>
+</html>
