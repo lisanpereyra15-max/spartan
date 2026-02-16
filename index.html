@@ -31,9 +31,33 @@
             100% { background-position: 40px 40px; }
         }
         .animated-grid { animation: gridMove 20s linear infinite; }
+
+        /* Botón Flotante de WhatsApp */
+        .wsp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .wsp-float:hover { transform: scale(1.1); box-shadow: 0 0 30px rgba(37, 211, 102, 0.6); }
     </style>
 </head>
 <body class="grid-bg animated-grid">
+
+    <a href="https://wa.me/5493513536101" class="wsp-float" target="_blank">
+        <i data-lucide="phone"></i>
+    </a>
 
     <nav class="fixed top-0 w-full z-50 bg-black/90 border-b border-cyan-500/20 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -61,7 +85,7 @@
         <p class="text-xl md:text-2xl font-light tracking-widest mb-2 uppercase">El futuro del entrenamiento</p>
         <p class="text-gray-400 text-sm mb-12">Tecnología de vanguardia · IA personalizada · Resultados garantizados</p>
         <div class="flex flex-col md:flex-row gap-4">
-            <a href="#contacto" class="bg-red-600 text-white font-bold px-10 py-4 rounded-full hover:scale-105 transition shadow-lg shadow-red-600/30 uppercase">Comenzar Ahora</a>
+            <a href="https://wa.me/5493513536101" target="_blank" class="bg-red-600 text-white font-bold px-10 py-4 rounded-full hover:scale-105 transition shadow-lg shadow-red-600/30 uppercase">Comenzar Ahora</a>
             <a href="#membresias" class="border-2 border-cyan-400 text-cyan-400 font-bold px-10 py-4 rounded-full hover:bg-cyan-400 hover:text-black transition uppercase">Ver Membresías</a>
         </div>
         
@@ -133,7 +157,7 @@
                     <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Vestuarios y duchas</li>
                     <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> App de seguimiento básica</li>
                 </ul>
-                <button class="w-full py-4 rounded-full border border-cyan-400 text-cyan-400 font-bold hover:bg-cyan-400 hover:text-black transition uppercase">Elegir Plan</button>
+                <a href="https://wa.me/5493513536101" target="_blank" class="block text-center w-full py-4 rounded-full border border-cyan-400 text-cyan-400 font-bold hover:bg-cyan-400 hover:text-black transition uppercase">Elegir Plan</a>
             </div>
             <div class="glass-card p-8 rounded-[30px] border-red-600 neon-border-red text-left relative scale-105 z-10">
                 <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">⚡ Más Elegido</div>
@@ -149,7 +173,7 @@
                     <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> App completa con IA</li>
                     <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> Bebida energética gratis</li>
                 </ul>
-                <button class="w-full py-4 rounded-full bg-red-600 text-white font-bold hover:bg-red-700 transition shadow-lg shadow-red-600/40 uppercase">Elegir Plan</button>
+                <a href="https://wa.me/5493513536101" target="_blank" class="block text-center w-full py-4 rounded-full bg-red-600 text-white font-bold hover:bg-red-700 transition shadow-lg shadow-red-600/40 uppercase">Elegir Plan</a>
             </div>
             <div class="glass-card p-8 rounded-[30px] border-cyan-500/20 text-left">
                 <h3 class="text-cyan-400 font-bold text-2xl mb-2">SPARTAN</h3>
@@ -164,7 +188,7 @@
                     <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Suplementación personalizada</li>
                     <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Prioridad en clases especiales</li>
                 </ul>
-                <button class="w-full py-4 rounded-full border border-cyan-400 text-cyan-400 font-bold hover:bg-cyan-400 hover:text-black transition uppercase">Elegir Plan</button>
+                <a href="https://wa.me/5493513536101" target="_blank" class="block text-center w-full py-4 rounded-full border border-cyan-400 text-cyan-400 font-bold hover:bg-cyan-400 hover:text-black transition uppercase">Elegir Plan</a>
             </div>
         </div>
     </section>
@@ -181,120 +205,63 @@
             <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20 group"><img src="https://images.unsplash.com/photo-1518310352947-a230c7c390f5" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
         </div>
         <div class="mt-12">
-            <button onclick="window.location.href='#contacto'" class="px-8 py-3 rounded-full bg-cyan-900/20 border border-cyan-500/30 text-cyan-400 font-bold hover:bg-cyan-500 hover:text-black transition uppercase">Agendar Visita</button>
+            <a href="https://wa.me/5493513536101" target="_blank" class="inline-block px-8 py-3 rounded-full bg-cyan-900/20 border border-cyan-500/30 text-cyan-400 font-bold hover:bg-cyan-500 hover:text-black transition uppercase">Agendar Visita</a>
         </div>
     </section>
 
     <section id="entrenadores" class="py-24 max-w-7xl mx-auto px-6 text-center">
         <h2 class="text-5xl font-black text-red-600 mb-4 uppercase italic tracking-tighter">Nuestros Entrenadores</h2>
-        <p class="text-gray-400 mb-16">Profesionales certificados con años de experiencia para guiarte en tu transformación</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="glass-card rounded-[40px] overflow-hidden group">
-                <div class="h-80 relative">
-                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                </div>
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400" class="h-80 w-full object-cover group-hover:scale-110 transition duration-500">
                 <div class="p-8">
-                    <h3 class="text-white text-2xl font-black mb-1">Carlos Mendoza</h3>
-                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Entrenamiento Funcional & CrossFit</p>
-                    <p class="text-gray-500 text-sm">Certificado internacional con 8 años de experiencia</p>
+                    <h3 class="text-white text-2xl font-black">Carlos Mendoza</h3>
+                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Entrenamiento Funcional</p>
                 </div>
             </div>
             <div class="glass-card rounded-[40px] overflow-hidden group">
-                <div class="h-80 relative">
-                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                </div>
+                <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400" class="h-80 w-full object-cover group-hover:scale-110 transition duration-500">
                 <div class="p-8">
-                    <h3 class="text-white text-2xl font-black mb-1">María Rodriguez</h3>
-                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Musculación & Nutrición Deportiva</p>
-                    <p class="text-gray-500 text-sm">Especialista en transformación corporal</p>
+                    <h3 class="text-white text-2xl font-black">María Rodriguez</h3>
+                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Musculación & Nutrición</p>
                 </div>
             </div>
             <div class="glass-card rounded-[40px] overflow-hidden group">
-                <div class="h-80 relative">
-                    <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                </div>
+                <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400" class="h-80 w-full object-cover group-hover:scale-110 transition duration-500">
                 <div class="p-8">
-                    <h3 class="text-white text-2xl font-black mb-1">Javier Torres</h3>
-                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Entrenamiento de Alto Rendimiento</p>
-                    <p class="text-gray-500 text-sm">Ex-atleta profesional y coach certificado</p>
+                    <h3 class="text-white text-2xl font-black">Javier Torres</h3>
+                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Alto Rendimiento</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="novedades" class="py-24 max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-5xl font-black text-cyan-400 mb-4 uppercase italic tracking-tighter">Novedades</h2>
-        <p class="text-gray-400 mb-16">Las últimas innovaciones tecnológicas que implementamos</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass-card rounded-[35px] overflow-hidden text-left border-cyan-500/20">
-                <div class="h-48 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac" class="w-full h-full object-cover">
-                    <span class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Marzo 2025</span>
-                </div>
-                <div class="p-8">
-                    <h3 class="text-cyan-400 font-bold text-lg mb-4 uppercase">Nuevas máquinas de realidad virtual</h3>
-                    <p class="text-gray-500 text-sm">Implementamos máquinas de entrenamiento con VR que te sumergen en ambientes motivadores.</p>
-                </div>
-            </div>
-            <div class="glass-card rounded-[35px] overflow-hidden text-left border-cyan-500/20">
-                <div class="h-48 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995" class="w-full h-full object-cover">
-                    <span class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Febrero 2025</span>
-                </div>
-                <div class="p-8">
-                    <h3 class="text-cyan-400 font-bold text-lg mb-4 uppercase">Sistema de IA para Tracking</h3>
-                    <p class="text-gray-500 text-sm">Nuevo sistema de IA que analiza tu forma, cuenta repeticiones y ajusta rutinas en tiempo real.</p>
-                </div>
-            </div>
-            <div class="glass-card rounded-[35px] overflow-hidden text-left border-cyan-500/20">
-                <div class="h-48 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb" class="w-full h-full object-cover">
-                    <span class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Enero 2025</span>
-                </div>
-                <div class="p-8">
-                    <h3 class="text-cyan-400 font-bold text-lg mb-4 uppercase">Espejos Inteligentes Interactivos</h3>
-                    <p class="text-gray-500 text-sm">Instalamos espejos con pantallas LED que muestran tu forma y estadísticas en vivo.</p>
-                </div>
-            </div>
-        </div>
-        <div class="mt-16 bg-red-600 rounded-[40px] p-12 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-black/10 blur-3xl rounded-full"></div>
-            <h3 class="text-4xl font-black italic uppercase mb-4">Más tecnología en camino</h3>
-            <p class="text-white/80 mb-8 max-w-2xl mx-auto">Estamos constantemente innovando para brindarte la mejor experiencia de entrenamiento del futuro</p>
-            <button class="bg-white text-red-600 font-bold px-10 py-4 rounded-full uppercase text-sm hover:bg-black hover:text-white transition">Conocé Más</button>
         </div>
     </section>
 
     <section id="contacto" class="py-24 max-w-7xl mx-auto px-6 text-center">
         <h2 class="text-5xl font-black text-red-600 mb-4 uppercase italic tracking-tighter">Contacto</h2>
-        <p class="text-gray-400 mb-16">Estamos listos para ayudarte a comenzar tu transformación</p>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-left">
             <div class="space-y-6">
                 <div class="glass-card p-6 rounded-3xl border-cyan-500/20 flex gap-4 items-center">
                     <div class="w-12 h-12 bg-cyan-900/20 rounded-2xl flex items-center justify-center"><i data-lucide="map-pin" class="text-cyan-400"></i></div>
                     <div>
                         <h4 class="text-cyan-400 font-bold text-sm uppercase">Ubicación</h4>
-                        <p class="text-gray-400 text-xs">Salta y Av. Córdoba 3212 - Córdoba</p>
-                        <button class="mt-2 text-cyan-400 text-[10px] font-bold px-4 py-1 rounded-full border border-cyan-400/30 uppercase">Ver en Mapa</button>
+                        <p class="text-gray-400 text-xs mb-2">Salta y Av. Córdoba 3212 - Córdoba</p>
+                        <a href="https://maps.app.goo.gl/sbQRr5Dy6NLcm7vK6" target="_blank" class="text-cyan-400 text-[10px] font-bold px-4 py-1 rounded-full border border-cyan-400/30 uppercase">Ver en Mapa</a>
                     </div>
                 </div>
                 <div class="glass-card p-6 rounded-3xl border-red-500/20 flex gap-4 items-center">
                     <div class="w-12 h-12 bg-red-900/20 rounded-2xl flex items-center justify-center"><i data-lucide="phone" class="text-red-500"></i></div>
                     <div>
                         <h4 class="text-red-500 font-bold text-sm uppercase">Teléfono</h4>
-                        <p class="text-gray-400 text-xs">+54 9 3513 53-6101</p>
-                        <button class="mt-2 text-red-500 text-[10px] font-bold px-4 py-1 rounded-full border border-red-500/30 uppercase">Contactar por WhatsApp</button>
+                        <p class="text-gray-400 text-xs mb-2">+54 9 3513 53-6101</p>
+                        <a href="https://wa.me/5493513536101" target="_blank" class="text-red-500 text-[10px] font-bold px-4 py-1 rounded-full border border-red-500/30 uppercase">WhatsApp Directo</a>
                     </div>
                 </div>
                 <div class="glass-card p-6 rounded-3xl border-cyan-500/20 flex gap-4 items-center">
                     <div class="w-12 h-12 bg-pink-900/20 rounded-2xl flex items-center justify-center"><i data-lucide="instagram" class="text-pink-500"></i></div>
                     <div>
                         <h4 class="text-cyan-400 font-bold text-sm uppercase">Redes Sociales</h4>
-                        <p class="text-gray-400 text-xs">@spartan_gym_fit</p>
-                        <button class="mt-2 text-pink-500 text-[10px] font-bold px-4 py-1 rounded-full border border-pink-500/30 uppercase">Seguinos en Instagram</button>
+                        <p class="text-gray-400 text-xs mb-2">@spartan_gym_fit</p>
+                        <a href="https://www.instagram.com/spartan_gym_fit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-pink-500 text-[10px] font-bold px-4 py-1 rounded-full border border-pink-500/30 uppercase">Instagram</a>
                     </div>
                 </div>
             </div>
@@ -304,12 +271,8 @@
                 <h3 class="text-4xl font-black italic uppercase mb-4">¡Comenzá Hoy!</h3>
                 <p class="text-white/80 mb-10">Contactanos ahora y obtené tu primera clase GRATIS</p>
                 <div class="w-full space-y-4">
-                    <button class="w-full py-4 bg-white text-red-600 font-black rounded-full shadow-lg uppercase tracking-wider flex justify-center items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Escribinos por WhatsApp</button>
-                    <button class="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-black rounded-full shadow-lg uppercase tracking-wider flex justify-center items-center gap-2"><i data-lucide="instagram" class="w-4 h-4"></i> Seguinos en Instagram</button>
-                </div>
-                <div class="mt-8 flex gap-8 border-t border-white/20 pt-8 w-full justify-center">
-                    <div><p class="text-2xl font-black">24/7</p><p class="text-[10px] text-white/60">Respuesta rápida</p></div>
-                    <div><p class="text-2xl font-black">100%</p><p class="text-[10px] text-white/60">Satisfacción</p></div>
+                    <a href="https://wa.me/5493513536101" target="_blank" class="block w-full py-4 bg-white text-red-600 font-black rounded-full shadow-lg uppercase tracking-wider">Escribinos por WhatsApp</a>
+                    <a href="https://www.instagram.com/spartan_gym_fit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="block w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-black rounded-full shadow-lg uppercase tracking-wider">Seguinos en Instagram</a>
                 </div>
             </div>
         </div>
@@ -317,7 +280,6 @@
 
     <footer class="py-12 bg-black border-t border-cyan-500/10 text-center">
         <p class="text-gray-600 text-[10px] uppercase tracking-widest">© 2026 Spartan Smart Gym. Todos los derechos reservados.</p>
-        <p class="text-cyan-500/40 text-[8px] mt-2">Hecho con tecnología futurista 🚀</p>
     </footer>
 
     <script>
