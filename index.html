@@ -32,7 +32,7 @@
         }
         .animated-grid { animation: gridMove 20s linear infinite; }
 
-        /* Botón Flotante de WhatsApp */
+        /* Botón Flotante de WhatsApp (Derecha) */
         .wsp-float {
             position: fixed;
             bottom: 30px;
@@ -45,18 +45,45 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 30px;
             box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
             z-index: 1000;
             transition: 0.3s;
         }
-        .wsp-float:hover { transform: scale(1.1); box-shadow: 0 0 30px rgba(37, 211, 102, 0.6); }
+        .wsp-float:hover { transform: scale(1.1); }
+
+        /* Botón Flotante de Rutina (Izquierda) */
+        .rutina-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #00f2ff, #0077ff);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+            z-index: 1000;
+            transition: 0.3s;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .rutina-float:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 242, 255, 0.6); }
     </style>
 </head>
 <body class="grid-bg animated-grid">
 
-    <a href="https://wa.me/5493513536101" class="wsp-float" target="_blank">
-        <i data-lucide="phone"></i>
+    <a href="https://wa.me/5493513536101" class="wsp-float" target="_blank" title="Contactar por WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <a href="https://spartancba.accesogym.com.ar/app/" class="rutina-float" target="_blank">
+        <i data-lucide="dumbbell"></i>
+        <span>MI RUTINA</span>
     </a>
 
     <nav class="fixed top-0 w-full z-50 bg-black/90 border-b border-cyan-500/20 backdrop-blur-md">
@@ -70,7 +97,7 @@
                 <a href="#membresias" class="hover:text-red-500 transition uppercase">Membresías</a>
                 <a href="#galeria" class="hover:text-red-500 transition uppercase">Galería</a>
                 <a href="#entrenadores" class="hover:text-red-500 transition uppercase">Entrenadores</a>
-                <a href="#novedades" class="hover:text-red-500 transition uppercase">Novedades</a>
+                <a href="https://spartancba.accesogym.com.ar/app/" target="_blank" class="text-white bg-cyan-600 px-3 py-1 rounded-md hover:bg-cyan-500 transition uppercase">Mi Rutina</a>
                 <a href="#contacto" class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition uppercase">Contacto</a>
             </div>
         </div>
@@ -83,27 +110,27 @@
             <span class="text-red-600">SMART GYM</span>
         </h1>
         <p class="text-xl md:text-2xl font-light tracking-widest mb-2 uppercase">El futuro del entrenamiento</p>
-        <p class="text-gray-400 text-sm mb-12">Tecnología de vanguardia · IA personalizada · Resultados garantizados</p>
-        <div class="flex flex-col md:flex-row gap-4">
+        
+        <div class="flex flex-col md:flex-row gap-4 mt-8">
             <a href="https://wa.me/5493513536101" target="_blank" class="bg-red-600 text-white font-bold px-10 py-4 rounded-full hover:scale-105 transition shadow-lg shadow-red-600/30 uppercase">Comenzar Ahora</a>
-            <a href="#membresias" class="border-2 border-cyan-400 text-cyan-400 font-bold px-10 py-4 rounded-full hover:bg-cyan-400 hover:text-black transition uppercase">Ver Membresías</a>
+            <a href="https://spartancba.accesogym.com.ar/app/" target="_blank" class="border-2 border-cyan-400 text-cyan-400 font-bold px-10 py-4 rounded-full hover:bg-cyan-400 hover:text-black transition uppercase">Ver Mi Rutina</a>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 max-w-4xl w-full">
             <div class="glass-card p-6 rounded-2xl border-cyan-500/30">
                 <i data-lucide="zap" class="text-cyan-400 w-8 h-8 mx-auto mb-3"></i>
                 <h3 class="text-cyan-400 font-bold text-sm uppercase">Tecnología IA</h3>
-                <p class="text-gray-500 text-xs mt-2">Entrenamiento personalizado con inteligencia artificial</p>
+                <p class="text-gray-500 text-xs mt-2">Planes inteligentes adaptados a tu progreso diario.</p>
             </div>
             <div class="glass-card p-6 rounded-2xl border-red-500/30">
-                <i data-lucide="trending-up" class="text-red-500 w-8 h-8 mx-auto mb-3"></i>
-                <h3 class="text-red-500 font-bold text-sm uppercase">Máquinas Futuristas</h3>
-                <p class="text-gray-500 text-xs mt-2">Equipamiento de última generación y realidad virtual</p>
+                <i data-lucide="dumbbell" class="text-red-500 w-8 h-8 mx-auto mb-3"></i>
+                <h3 class="text-red-500 font-bold text-sm uppercase">Acceso Digital</h3>
+                <p class="text-gray-500 text-xs mt-2">Tu rutina y guía de ejercicios siempre en tu móvil.</p>
             </div>
             <div class="glass-card p-6 rounded-2xl border-cyan-500/30">
                 <i data-lucide="shield" class="text-cyan-400 w-8 h-8 mx-auto mb-3"></i>
                 <h3 class="text-cyan-400 font-bold text-sm uppercase">Resultados Reales</h3>
-                <p class="text-gray-500 text-xs mt-2">Seguimiento preciso y progreso medible</p>
+                <p class="text-gray-500 text-xs mt-2">Seguimiento preciso del sistema AccesoGym.</p>
             </div>
         </div>
     </header>
@@ -114,172 +141,86 @@
             <div class="glass-card p-10 rounded-[30px] neon-border-cyan">
                 <i data-lucide="calendar" class="w-12 h-12 text-cyan-400 mx-auto mb-6"></i>
                 <h3 class="text-cyan-400 text-xl font-bold mb-8">Lunes a Viernes</h3>
-                <div class="space-y-4">
-                    <div class="flex justify-between p-4 bg-black/40 rounded-xl border border-cyan-500/10">
-                        <span class="text-gray-400">Mañana</span>
-                        <span class="text-cyan-400 font-bold">7:00 - 11:30</span>
-                    </div>
-                    <div class="flex justify-between p-4 bg-black/40 rounded-xl border border-cyan-500/10">
-                        <span class="text-gray-400">Tarde</span>
-                        <span class="text-cyan-400 font-bold">15:00 - 22:00</span>
-                    </div>
+                <div class="space-y-4 text-cyan-400">
+                    <p>7:00 - 11:30 | 15:00 - 22:00</p>
                 </div>
             </div>
             <div class="glass-card p-10 rounded-[30px] neon-border-red">
-                <i data-lucide="calendar" class="w-12 h-12 text-red-500 mx-auto mb-6"></i>
+                <i data-lucide="clock" class="w-12 h-12 text-red-500 mx-auto mb-6"></i>
                 <h3 class="text-red-500 text-xl font-bold mb-8">Sábados y Domingos</h3>
-                <div class="py-10">
-                    <p class="text-gray-500 text-sm mb-2">Actualmente</p>
-                    <p class="text-red-500 text-4xl font-black uppercase">Cerrado</p>
-                    <p class="text-gray-600 text-xs mt-4 italic">Pronto nuevos horarios</p>
-                </div>
+                <p class="text-red-500 font-black uppercase">Cerrado</p>
             </div>
-        </div>
-        <div class="mt-8">
-            <p class="text-cyan-400 text-xs py-2 px-6 rounded-full bg-cyan-900/20 border border-cyan-500/30 inline-block">
-                ⚡ Clases especiales consultar horarios personalizados
-            </p>
         </div>
     </section>
 
     <section id="membresias" class="py-24 max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-5xl font-black text-red-600 mb-4 uppercase italic tracking-tighter">Membresías</h2>
-        <p class="text-gray-400 mb-16">Elegí el plan que mejor se adapte a tus objetivos</p>
+        <h2 class="text-5xl font-black text-red-600 mb-16 uppercase italic tracking-tighter">Membresías</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="glass-card p-8 rounded-[30px] border-cyan-500/20 text-left">
-                <h3 class="text-cyan-400 font-bold text-2xl mb-2">BASIC</h3>
-                <div class="flex items-baseline gap-1 mb-8">
-                    <span class="text-5xl font-black">$15.000</span><span class="text-gray-500 text-xs">/mensual</span>
-                </div>
-                <ul class="space-y-4 mb-10 text-sm text-gray-300">
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Acceso en horarios limitados</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Área de pesas y cardio</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Vestuarios y duchas</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> App de seguimiento básica</li>
-                </ul>
+                <h3 class="text-cyan-400 font-bold text-2xl mb-2 uppercase">Basic</h3>
+                <p class="text-4xl font-black mb-8">$15.000</p>
                 <a href="https://wa.me/5493513536101" target="_blank" class="block text-center w-full py-4 rounded-full border border-cyan-400 text-cyan-400 font-bold hover:bg-cyan-400 hover:text-black transition uppercase">Elegir Plan</a>
             </div>
             <div class="glass-card p-8 rounded-[30px] border-red-600 neon-border-red text-left relative scale-105 z-10">
                 <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">⚡ Más Elegido</div>
-                <h3 class="text-red-500 font-bold text-2xl mb-2">ELITE</h3>
-                <div class="flex items-baseline gap-1 mb-8">
-                    <span class="text-5xl font-black">$25.000</span><span class="text-gray-500 text-xs">/mensual</span>
-                </div>
-                <ul class="space-y-4 mb-10 text-sm text-gray-300">
-                    <li class="text-red-400 font-bold"><i data-lucide="check" class="w-4 h-4 inline mr-2"></i> Acceso ilimitado todos los horarios</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> Todas las áreas del gym</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> Clases grupales incluidas</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> Plan de entrenamiento personalizado</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> App completa con IA</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> Bebida energética gratis</li>
-                </ul>
-                <a href="https://wa.me/5493513536101" target="_blank" class="block text-center w-full py-4 rounded-full bg-red-600 text-white font-bold hover:bg-red-700 transition shadow-lg shadow-red-600/40 uppercase">Elegir Plan</a>
+                <h3 class="text-red-500 font-bold text-2xl mb-2 uppercase">Elite</h3>
+                <p class="text-4xl font-black mb-8">$25.000</p>
+                <a href="https://wa.me/5493513536101" target="_blank" class="block text-center w-full py-4 rounded-full bg-red-600 text-white font-bold hover:bg-red-700 transition uppercase">Elegir Plan</a>
             </div>
             <div class="glass-card p-8 rounded-[30px] border-cyan-500/20 text-left">
-                <h3 class="text-cyan-400 font-bold text-2xl mb-2">SPARTAN</h3>
-                <div class="flex items-baseline gap-1 mb-8">
-                    <span class="text-5xl font-black">$40.000</span><span class="text-gray-500 text-xs">/mensual</span>
-                </div>
-                <ul class="space-y-4 mb-10 text-sm text-gray-300">
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Todo lo de ELITE +</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Entrenador personal 2x semana</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Análisis corporal mensual</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Acceso a zona VIP</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Suplementación personalizada</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Prioridad en clases especiales</li>
-                </ul>
+                <h3 class="text-cyan-400 font-bold text-2xl mb-2 uppercase">Spartan</h3>
+                <p class="text-4xl font-black mb-8">$40.000</p>
                 <a href="https://wa.me/5493513536101" target="_blank" class="block text-center w-full py-4 rounded-full border border-cyan-400 text-cyan-400 font-bold hover:bg-cyan-400 hover:text-black transition uppercase">Elegir Plan</a>
             </div>
         </div>
     </section>
 
     <section id="galeria" class="py-24 max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-5xl font-black text-cyan-400 mb-4 uppercase italic tracking-tighter">Nuestro Gym</h2>
-        <p class="text-gray-400 mb-12">Instalaciones de última generación con tecnología futurista</p>
+        <h2 class="text-5xl font-black text-cyan-400 mb-12 uppercase italic tracking-tighter">Galería</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20 group"><img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
-            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20 group"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
-            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20 group"><img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
-            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20 group"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
-            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20 group"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
-            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20 group"><img src="https://images.unsplash.com/photo-1518310352947-a230c7c390f5" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
-        </div>
-        <div class="mt-12">
-            <a href="https://wa.me/5493513536101" target="_blank" class="inline-block px-8 py-3 rounded-full bg-cyan-900/20 border border-cyan-500/30 text-cyan-400 font-bold hover:bg-cyan-500 hover:text-black transition uppercase">Agendar Visita</a>
+            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20"><img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77" class="w-full h-full object-cover"></div>
+            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48" class="w-full h-full object-cover"></div>
+            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20"><img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f" class="w-full h-full object-cover"></div>
         </div>
     </section>
 
-    <section id="entrenadores" class="py-24 max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-5xl font-black text-red-600 mb-4 uppercase italic tracking-tighter">Nuestros Entrenadores</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass-card rounded-[40px] overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400" class="h-80 w-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="p-8">
-                    <h3 class="text-white text-2xl font-black">Carlos Mendoza</h3>
-                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Entrenamiento Funcional</p>
-                </div>
-            </div>
-            <div class="glass-card rounded-[40px] overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400" class="h-80 w-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="p-8">
-                    <h3 class="text-white text-2xl font-black">María Rodriguez</h3>
-                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Musculación & Nutrición</p>
-                </div>
-            </div>
-            <div class="glass-card rounded-[40px] overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400" class="h-80 w-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="p-8">
-                    <h3 class="text-white text-2xl font-black">Javier Torres</h3>
-                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Alto Rendimiento</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="py-24 max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-5xl font-black text-red-600 mb-4 uppercase italic tracking-tighter">Contacto</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-left">
+    <section id="contacto" class="py-24 max-w-7xl mx-auto px-6">
+        <h2 class="text-5xl font-black text-red-600 mb-16 uppercase italic tracking-tighter text-center">Contacto</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div class="space-y-6">
-                <div class="glass-card p-6 rounded-3xl border-cyan-500/20 flex gap-4 items-center">
-                    <div class="w-12 h-12 bg-cyan-900/20 rounded-2xl flex items-center justify-center"><i data-lucide="map-pin" class="text-cyan-400"></i></div>
+                <div class="glass-card p-6 rounded-3xl flex gap-4 items-center">
+                    <i data-lucide="map-pin" class="text-cyan-400"></i>
                     <div>
-                        <h4 class="text-cyan-400 font-bold text-sm uppercase">Ubicación</h4>
-                        <p class="text-gray-400 text-xs mb-2">Salta y Av. Córdoba 3212 - Córdoba</p>
-                        <a href="https://maps.app.goo.gl/sbQRr5Dy6NLcm7vK6" target="_blank" class="text-cyan-400 text-[10px] font-bold px-4 py-1 rounded-full border border-cyan-400/30 uppercase">Ver en Mapa</a>
+                        <p class="text-gray-400 text-xs">Salta y Av. Córdoba 3212 - Córdoba</p>
+                        <a href="https://maps.app.goo.gl/sbQRr5Dy6NLcm7vK6" target="_blank" class="text-cyan-400 text-xs font-bold uppercase">Ver en Mapa</a>
                     </div>
                 </div>
-                <div class="glass-card p-6 rounded-3xl border-red-500/20 flex gap-4 items-center">
-                    <div class="w-12 h-12 bg-red-900/20 rounded-2xl flex items-center justify-center"><i data-lucide="phone" class="text-red-500"></i></div>
+                <div class="glass-card p-6 rounded-3xl flex gap-4 items-center">
+                    <i data-lucide="phone" class="text-red-500"></i>
                     <div>
-                        <h4 class="text-red-500 font-bold text-sm uppercase">Teléfono</h4>
-                        <p class="text-gray-400 text-xs mb-2">+54 9 3513 53-6101</p>
-                        <a href="https://wa.me/5493513536101" target="_blank" class="text-red-500 text-[10px] font-bold px-4 py-1 rounded-full border border-red-500/30 uppercase">WhatsApp Directo</a>
+                        <p class="text-gray-400 text-xs">+54 9 3513 53-6101</p>
+                        <a href="https://wa.me/5493513536101" target="_blank" class="text-red-500 text-xs font-bold uppercase">WhatsApp Directo</a>
                     </div>
                 </div>
-                <div class="glass-card p-6 rounded-3xl border-cyan-500/20 flex gap-4 items-center">
-                    <div class="w-12 h-12 bg-pink-900/20 rounded-2xl flex items-center justify-center"><i data-lucide="instagram" class="text-pink-500"></i></div>
+                <div class="glass-card p-6 rounded-3xl flex gap-4 items-center">
+                    <i data-lucide="instagram" class="text-pink-500"></i>
                     <div>
-                        <h4 class="text-cyan-400 font-bold text-sm uppercase">Redes Sociales</h4>
-                        <p class="text-gray-400 text-xs mb-2">@spartan_gym_fit</p>
-                        <a href="https://www.instagram.com/spartan_gym_fit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-pink-500 text-[10px] font-bold px-4 py-1 rounded-full border border-pink-500/30 uppercase">Instagram</a>
+                        <p class="text-gray-400 text-xs">@spartan_gym_fit</p>
+                        <a href="https://www.instagram.com/spartan_gym_fit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-pink-500 text-xs font-bold uppercase">Instagram</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="bg-red-600 rounded-[40px] p-10 text-center flex flex-col items-center justify-center">
-                <i data-lucide="send" class="w-16 h-16 text-white mb-6"></i>
-                <h3 class="text-4xl font-black italic uppercase mb-4">¡Comenzá Hoy!</h3>
-                <p class="text-white/80 mb-10">Contactanos ahora y obtené tu primera clase GRATIS</p>
-                <div class="w-full space-y-4">
-                    <a href="https://wa.me/5493513536101" target="_blank" class="block w-full py-4 bg-white text-red-600 font-black rounded-full shadow-lg uppercase tracking-wider">Escribinos por WhatsApp</a>
-                    <a href="https://www.instagram.com/spartan_gym_fit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="block w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-black rounded-full shadow-lg uppercase tracking-wider">Seguinos en Instagram</a>
-                </div>
+            <div class="bg-red-600 rounded-[40px] p-10 flex flex-col items-center justify-center text-center">
+                <h3 class="text-3xl font-black uppercase mb-4 text-white italic">¿Listo para el cambio?</h3>
+                <p class="text-white/80 mb-8">Accedé hoy mismo a tu rutina personalizada</p>
+                <a href="https://spartancba.accesogym.com.ar/app/" target="_blank" class="w-full py-4 bg-white text-red-600 font-black rounded-full shadow-lg uppercase mb-4">Ingresar a Mi Rutina</a>
+                <a href="https://wa.me/5493513536101" target="_blank" class="w-full py-4 bg-black text-white font-black rounded-full shadow-lg uppercase">Consultar WhatsApp</a>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 bg-black border-t border-cyan-500/10 text-center">
-        <p class="text-gray-600 text-[10px] uppercase tracking-widest">© 2026 Spartan Smart Gym. Todos los derechos reservados.</p>
+    <footer class="py-12 bg-black border-t border-cyan-500/10 text-center text-gray-600 text-[10px] uppercase">
+        © 2026 Spartan Smart Gym. Todos los derechos reservados.
     </footer>
 
     <script>
