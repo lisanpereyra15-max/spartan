@@ -6,73 +6,187 @@
     <title>Spartan Smart Gym - El Futuro del Entrenamiento</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --cyan-neon: #00f2fe;
+            --red-neon: #ff003c;
+            --dark-bg: #050505;
+            --panel-bg: rgba(10, 10, 15, 0.8);
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000;
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
             color: white;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
-        .grid-bg {
-            background-image: radial-gradient(circle at center, #00f2ff10 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-        .glass-card {
-            background: rgba(15, 15, 20, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 242, 255, 0.1);
-        }
-        .neon-border-cyan { border: 1px solid #00f2ff50; box-shadow: 0 0 15px #00f2ff20; }
-        .neon-border-red { border: 1px solid #ff313150; box-shadow: 0 0 15px #ff313120; }
-        
-        @keyframes gridMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 40px 40px; }
-        }
-        .animated-grid { animation: gridMove 20s linear infinite; }
 
-        .wsp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: 0.3s;
+        /* Tipografía para títulos */
+        .font-tech {
+            font-family: 'Orbitron', sans-serif;
         }
-        .wsp-float:hover { transform: scale(1.1); }
+
+        /* Efecto Scanlines de fondo */
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
+            );
+            background-size: 100% 4px;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.3;
+        }
+
+        /* Grid animado sutil */
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(0, 242, 254, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 254, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: center center;
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(30px); }
+        }
+
+        /* Animación Glitch Futurista para el título */
+        .glitch-text {
+            position: relative;
+            color: white;
+        }
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--red-neon);
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--cyan-neon);
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(10px, 9999px, 44px, 0); }
+            20% { clip: rect(80px, 9999px, 12px, 0); }
+            40% { clip: rect(33px, 9999px, 88px, 0); }
+            60% { clip: rect(66px, 9999px, 22px, 0); }
+            80% { clip: rect(11px, 9999px, 77px, 0); }
+            100% { clip: rect(99px, 9999px, 33px, 0); }
+        }
+
+        /* Tarjetas estilo Panel de Control */
+        .cyber-panel {
+            background: var(--panel-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        /* Bordes de neón */
+        .neon-border-cyan { border: 1px solid rgba(0, 242, 254, 0.3); }
+        .neon-border-cyan:hover { box-shadow: 0 0 20px rgba(0, 242, 254, 0.2) inset, 0 0 20px rgba(0, 242, 254, 0.4); border-color: var(--cyan-neon); }
+        
+        .neon-border-red { border: 1px solid rgba(255, 0, 60, 0.3); }
+        .neon-border-red:hover { box-shadow: 0 0 20px rgba(255, 0, 60, 0.2) inset, 0 0 20px rgba(255, 0, 60, 0.4); border-color: var(--red-neon); }
+
+        /* Texto brillante */
+        .text-glow-cyan { text-shadow: 0 0 10px var(--cyan-neon); }
+        .text-glow-red { text-shadow: 0 0 10px var(--red-neon); }
+
+        /* Fondo del contacto (rojo rayado) */
+        .bg-cyber-red {
+            background: repeating-linear-gradient(
+                45deg,
+                #d3002d,
+                #d3002d 10px,
+                #ff003c 10px,
+                #ff003c 20px
+            );
+            border-radius: 15px;
+            border: 2px solid var(--red-neon);
+            box-shadow: 0 0 30px rgba(255,0,60,0.3);
+        }
+
+        /* Botones Flotantes */
+        .wsp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: #000; color: #25d366;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            border: 2px solid #25d366;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+            z-index: 1000; transition: 0.3s;
+        }
+        .wsp-float:hover { transform: scale(1.1); background-color: #25d366; color: #000; box-shadow: 0 0 25px rgba(37, 211, 102, 0.8); }
 
         .rutina-float {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: linear-gradient(135deg, #00f2ff, #0077ff);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
-            z-index: 1000;
-            transition: 0.3s;
-            text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.2);
+            position: fixed; bottom: 30px; left: 30px;
+            background: #000; color: var(--cyan-neon);
+            padding: 12px 25px; border-radius: 30px;
+            display: flex; justify-content: center; align-items: center; gap: 10px;
+            font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: bold; letter-spacing: 1px;
+            border: 2px solid var(--cyan-neon);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+            z-index: 1000; transition: 0.3s; text-decoration: none;
         }
+        .rutina-float:hover { background: var(--cyan-neon); color: #000; box-shadow: 0 0 25px rgba(0, 242, 254, 0.8); }
+
+        /* Botones Cyber */
+        .cyber-btn {
+            position: relative;
+            background: transparent;
+            color: var(--cyan-neon);
+            border: 1px solid var(--cyan-neon);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .cyber-btn::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.4), transparent);
+            transition: left 0.5s;
+        }
+        .cyber-btn:hover::before { left: 100%; }
+        .cyber-btn:hover { background: var(--cyan-neon); color: #000; box-shadow: 0 0 20px var(--cyan-neon); }
+
+        .cyber-btn-red {
+            color: var(--red-neon); border-color: var(--red-neon);
+        }
+        .cyber-btn-red::before { background: linear-gradient(90deg, transparent, rgba(255, 0, 60, 0.4), transparent); }
+        .cyber-btn-red:hover { background: var(--red-neon); color: #fff; box-shadow: 0 0 20px var(--red-neon); }
     </style>
 </head>
-<body class="grid-bg animated-grid">
+<body class="cyber-grid text-gray-300">
+
+    <div class="scanlines"></div>
 
     <a href="https://wa.me/5493513536101" class="wsp-float" target="_blank">
         <i data-lucide="message-circle"></i>
@@ -82,152 +196,199 @@
         <span>MI RUTINA</span>
     </a>
 
-    <nav class="fixed top-0 w-full z-50 bg-black/90 border-b border-cyan-500/20 backdrop-blur-md">
+    <nav class="fixed top-0 w-full z-50 bg-[#050505]/95 border-b border-[#00f2fe]/20 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <img src="logo.jpg" alt="Logo" class="w-10 h-10 rounded-full border border-cyan-500">
-                <span class="text-red-500 font-black tracking-tighter text-xl uppercase">Spartan</span>
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full border-2 border-[#00f2fe] flex items-center justify-center bg-black overflow-hidden shadow-[0_0_10px_#00f2fe]">
+                    <img src="logo.jpg" alt="Logo" class="w-full h-full object-cover grayscale" onerror="this.src='https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=100&h=100&fit=crop'">
+                </div>
+                <span class="text-[#ff003c] font-tech font-black tracking-widest text-xl text-glow-red">SPARTAN</span>
             </div>
-            <div class="hidden md:flex gap-8 text-[10px] font-bold tracking-widest text-cyan-400">
-                <a href="#horarios" class="hover:text-red-500 transition uppercase">Horarios</a>
-                <a href="#membresias" class="hover:text-red-500 transition uppercase">Membresías</a>
-                <a href="#galeria" class="hover:text-red-500 transition uppercase">Galería</a>
-                <a href="#entrenadores" class="hover:text-red-500 transition uppercase">Entrenadores</a>
-                <a href="#contacto" class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition uppercase">Contacto</a>
+            <div class="hidden md:flex gap-8 text-[11px] font-tech font-bold tracking-[0.2em] text-[#00f2fe]">
+                <a href="#horarios" class="hover:text-white hover:text-glow-cyan transition">HORARIOS</a>
+                <a href="#membresias" class="hover:text-white hover:text-glow-cyan transition">MEMBRESÍAS</a>
+                <a href="#galeria" class="hover:text-white hover:text-glow-cyan transition">GALERÍA</a>
+                <a href="#entrenadores" class="hover:text-white hover:text-glow-cyan transition">ENTRENADORES</a>
+                <a href="#contacto" class="bg-[#ff003c] text-white px-6 py-2 rounded-[4px] hover:bg-white hover:text-[#ff003c] transition shadow-[0_0_15px_#ff003c]">CONTACTO</a>
             </div>
         </div>
     </nav>
 
-    <header id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20">
-        <img src="logo.jpg" alt="Logo Principal" class="w-32 h-32 mb-8 rounded-full border-4 border-cyan-500 shadow-[0_0_30px_rgba(0,242,255,0.3)]">
-        <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-4">
-            <span class="text-cyan-400">SPARTAN</span><br>
-            <span class="text-red-600">SMART GYM</span>
-        </h1>
-        <p class="text-xl md:text-2xl font-light tracking-widest mb-12 uppercase">El futuro del entrenamiento</p>
-        <div class="flex flex-col md:flex-row gap-4">
-            <a href="https://wa.me/5493513536101" target="_blank" class="bg-red-600 text-white font-bold px-10 py-4 rounded-full hover:scale-105 transition shadow-lg shadow-red-600/30 uppercase">Comenzar Ahora</a>
-            <a href="https://spartancba.accesogym.com.ar/app/" target="_blank" class="border-2 border-cyan-400 text-cyan-400 font-bold px-10 py-4 rounded-full hover:bg-cyan-400 hover:text-black transition uppercase">Ver Mi Rutina</a>
+    <header id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden">
+        
+        <div class="absolute inset-0 z-0 opacity-30 mix-blend-screen">
+            <img src="gorila.jpg" alt="Fondo Gorila Spartan" class="w-full h-full object-cover grayscale">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505]"></div>
+        </div>
+
+        <div class="relative z-10 flex flex-col items-center">
+            <div class="w-32 h-32 mb-8 rounded-full border-4 border-[#00f2fe] flex items-center justify-center bg-black overflow-hidden shadow-[0_0_30px_#00f2fe] relative">
+                <div class="absolute inset-0 border-2 border-dashed border-[#ff003c] rounded-full animate-spin" style="animation-duration: 10s;"></div>
+                <img src="logo.jpg" alt="Logo Principal" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=200&h=200&fit=crop'">
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-tech font-black leading-tight mb-4 flex flex-col gap-2">
+                <span class="text-[#00f2fe] glitch-text text-glow-cyan tracking-widest" data-text="SPARTAN">SPARTAN</span>
+                <span class="text-[#ff003c] glitch-text text-glow-red tracking-widest" data-text="SMART GYM">SMART GYM</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl font-light tracking-[0.3em] mb-12 uppercase text-gray-400">
+                El futuro del entrenamiento
+            </p>
+            
+            <div class="flex flex-col w-full max-w-md gap-4">
+                <a href="https://wa.me/5493513536101" target="_blank" class="w-full bg-[#ff003c] text-white font-tech font-bold py-4 rounded-[4px] hover:scale-105 transition duration-300 shadow-[0_0_20px_rgba(255,0,60,0.6)] uppercase tracking-[0.2em]">Comenzar Ahora</a>
+                <a href="https://spartancba.accesogym.com.ar/app/" target="_blank" class="w-full border border-[#00f2fe] text-[#00f2fe] font-tech font-bold py-4 rounded-[4px] hover:bg-[#00f2fe] hover:text-black transition duration-300 uppercase tracking-[0.2em] shadow-[0_0_15px_rgba(0,242,254,0.2)inset]">Ver Mi Rutina</a>
+            </div>
         </div>
     </header>
 
-    <section id="horarios" class="py-24 max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-5xl font-black text-cyan-400 mb-12 uppercase italic tracking-tighter">Horarios</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div class="glass-card p-10 rounded-[30px] neon-border-cyan">
-                <i data-lucide="calendar" class="w-12 h-12 text-cyan-400 mx-auto mb-6"></i>
-                <h3 class="text-cyan-400 text-xl font-bold mb-8 uppercase">Lunes a Viernes</h3>
-                <div class="space-y-4">
-                    <div class="flex justify-between p-4 bg-black/40 rounded-xl border border-cyan-500/10">
-                        <span class="text-gray-400">Mañana</span>
-                        <span class="text-cyan-400 font-bold">7:00 - 11:30</span>
+    <section id="horarios" class="py-24 max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-tech font-black text-[#00f2fe] mb-16 text-center text-glow-cyan">
+            // HORARIOS
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="cyber-panel p-10 rounded-xl neon-border-cyan flex flex-col items-center text-center">
+                <i data-lucide="calendar" class="w-10 h-10 text-[#00f2fe] mb-6"></i>
+                <h3 class="text-[#00f2fe] font-tech text-xl font-bold mb-10 tracking-widest">LUNES A VIERNES</h3>
+                <div class="w-full space-y-6">
+                    <div class="flex justify-between items-center border-b border-[#00f2fe]/20 pb-4">
+                        <span class="text-gray-400 font-tech tracking-wider text-sm">MAÑANA</span>
+                        <span class="text-[#00f2fe] font-tech font-bold text-lg text-glow-cyan">07:00 - 11:30</span>
                     </div>
-                    <div class="flex justify-between p-4 bg-black/40 rounded-xl border border-cyan-500/10">
-                        <span class="text-gray-400">Tarde</span>
-                        <span class="text-cyan-400 font-bold">15:00 - 22:00</span>
+                    <div class="flex justify-between items-center border-b border-[#00f2fe]/20 pb-4">
+                        <span class="text-gray-400 font-tech tracking-wider text-sm">TARDE</span>
+                        <span class="text-[#00f2fe] font-tech font-bold text-lg text-glow-cyan">15:00 - 22:00</span>
                     </div>
                 </div>
             </div>
-            <div class="glass-card p-10 rounded-[30px] neon-border-red">
-                <i data-lucide="clock" class="w-12 h-12 text-red-500 mx-auto mb-6"></i>
-                <h3 class="text-red-500 text-xl font-bold mb-8 uppercase">Sábados y Domingos</h3>
-                <div class="py-10">
-                    <p class="text-gray-500 text-sm mb-2">Actualmente</p>
-                    <p class="text-red-500 text-4xl font-black uppercase">Cerrado</p>
-                    <p class="text-gray-600 text-xs mt-4 italic">Pronto nuevos horarios</p>
+            
+            <div class="cyber-panel p-10 rounded-xl neon-border-red flex flex-col items-center text-center justify-center">
+                <i data-lucide="clock" class="w-10 h-10 text-[#ff003c] mb-6"></i>
+                <h3 class="text-[#ff003c] font-tech text-xl font-bold mb-10 tracking-widest">SÁBADOS Y DOMINGOS</h3>
+                <div class="flex flex-col items-center">
+                    <span class="text-gray-500 font-tech text-xs tracking-[0.3em] mb-2">ACTUALMENTE</span>
+                    <span class="text-[#ff003c] font-tech text-4xl font-black tracking-widest text-glow-red">CERRADO</span>
+                    <span class="text-gray-600 text-xs mt-4 font-tech">Pronto nuevos horarios</span>
                 </div>
             </div>
         </div>
-        <div class="mt-8">
-            <p class="text-cyan-400 text-xs py-2 px-6 rounded-full bg-cyan-900/20 border border-cyan-500/30 inline-block">
-                ⚡ Clases especiales consultar horarios personalizados
-            </p>
+        <div class="mt-12 text-center">
+            <span class="border border-[#00f2fe]/30 bg-[#00f2fe]/5 text-[#00f2fe] font-tech text-xs py-2 px-6 rounded-full inline-flex items-center gap-2">
+                <i data-lucide="zap" class="w-3 h-3"></i> Clases especiales consultar horarios personalizados
+            </span>
         </div>
     </section>
 
-    <section id="membresias" class="py-24 max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-5xl font-black text-red-600 mb-4 uppercase italic tracking-tighter">Membresías</h2>
-        <p class="text-gray-400 mb-16">Elegí el plan que mejor se adapte a tus objetivos</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass-card p-8 rounded-[30px] border-cyan-500/20 text-left">
-                <h3 class="text-cyan-400 font-bold text-2xl mb-2">BASIC</h3>
-                <div class="flex items-baseline gap-1 mb-8">
-                    <span class="text-5xl font-black">$15.000</span><span class="text-gray-500 text-xs">/mensual</span>
+    <section id="membresias" class="py-24 max-w-7xl mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-tech font-black text-[#ff003c] mb-4 text-center text-glow-red">
+            // MEMBRESÍAS
+        </h2>
+        <p class="text-gray-400 mb-16 text-center font-tech tracking-wider">Elegí el plan que mejor se adapte a tus objetivos</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div class="cyber-panel p-8 rounded-xl neon-border-cyan flex flex-col h-[90%]">
+                <h3 class="text-[#00f2fe] font-tech font-bold text-2xl tracking-widest mb-4">BASIC</h3>
+                <div class="mb-8 font-tech">
+                    <span class="text-4xl font-black text-white">$15.000</span><span class="text-gray-500 text-xs ml-1">/mensual</span>
                 </div>
-                <ul class="space-y-4 mb-10 text-sm text-gray-300">
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Acceso en horarios limitados</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Área de pesas y cardio</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Vestuarios y duchas</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> App de seguimiento básica</li>
+                <ul class="space-y-4 mb-auto text-sm">
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#00f2fe]"></i> Acceso en horarios limitados</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#00f2fe]"></i> Área de pesas y cardio</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#00f2fe]"></i> Vestuarios y duchas</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#00f2fe]"></i> App de seguimiento básica</li>
                 </ul>
-                <a href="https://wa.me/5493513536101" target="_blank" class="block text-center w-full py-4 rounded-full border border-cyan-400 text-cyan-400 font-bold hover:bg-cyan-400 hover:text-black transition uppercase">Elegir Plan</a>
+                <a href="https://wa.me/5493513536101" class="mt-8 cyber-btn block text-center py-4 rounded-[4px] font-bold">ELEGIR PLAN</a>
             </div>
-            <div class="glass-card p-8 rounded-[30px] border-red-600 neon-border-red text-left relative scale-105 z-10">
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">⚡ Más Elegido</div>
-                <h3 class="text-red-500 font-bold text-2xl mb-2">ELITE</h3>
-                <div class="flex items-baseline gap-1 mb-8">
-                    <span class="text-5xl font-black">$25.000</span><span class="text-gray-500 text-xs">/mensual</span>
+
+            <div class="cyber-panel p-10 rounded-xl neon-border-red relative transform scale-105 z-10 h-full shadow-[0_0_30px_rgba(255,0,60,0.15)] bg-black/60">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#ff003c] text-white font-tech text-[10px] font-black px-4 py-1 rounded-full tracking-[0.2em] shadow-[0_0_10px_#ff003c]">MÁS ELEGIDO</div>
+                <h3 class="text-[#ff003c] font-tech font-bold text-2xl tracking-widest mb-4 text-glow-red">ELITE</h3>
+                <div class="mb-8 font-tech">
+                    <span class="text-5xl font-black text-white">$25.000</span><span class="text-gray-500 text-xs ml-1">/mensual</span>
                 </div>
-                <ul class="space-y-4 mb-10 text-sm text-gray-300">
-                    <li class="text-red-400 font-bold"><i data-lucide="check" class="w-4 h-4 inline mr-2"></i> Acceso ilimitado todos los horarios</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> Todas las áreas del gym</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> Clases grupales incluidas</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> Plan de entrenamiento personalizado</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> App completa con IA</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-red-500"></i> Bebida energética gratis</li>
+                <ul class="space-y-4 mb-auto text-sm">
+                    <li class="flex items-center gap-3 text-[#00f2fe] font-bold"><i data-lucide="check" class="w-4 h-4"></i> Acceso ilimitado todos los horarios</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#ff003c]"></i> Todas las áreas del gym</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#ff003c]"></i> Clases grupales incluidas</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#ff003c]"></i> Plan de entrenamiento personalizado</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#ff003c]"></i> App completa con IA</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#ff003c]"></i> Bebida energética gratis</li>
                 </ul>
-                <a href="https://wa.me/5493513536101" target="_blank" class="block text-center w-full py-4 rounded-full bg-red-600 text-white font-bold hover:bg-red-700 transition shadow-lg shadow-red-600/40 uppercase">Elegir Plan</a>
+                <a href="https://wa.me/5493513536101" class="mt-8 cyber-btn cyber-btn-red block text-center py-4 rounded-[4px] font-bold bg-[#ff003c]/10">ELEGIR PLAN</a>
             </div>
-            <div class="glass-card p-8 rounded-[30px] border-cyan-500/20 text-left">
-                <h3 class="text-cyan-400 font-bold text-2xl mb-2">SPARTAN</h3>
-                <div class="flex items-baseline gap-1 mb-8">
-                    <span class="text-5xl font-black">$40.000</span><span class="text-gray-500 text-xs">/mensual</span>
+
+            <div class="cyber-panel p-8 rounded-xl neon-border-cyan flex flex-col h-[90%]">
+                <h3 class="text-[#00f2fe] font-tech font-bold text-2xl tracking-widest mb-4">SPARTAN</h3>
+                <div class="mb-8 font-tech">
+                    <span class="text-4xl font-black text-white">$40.000</span><span class="text-gray-500 text-xs ml-1">/mensual</span>
                 </div>
-                <ul class="space-y-4 mb-10 text-sm text-gray-300">
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Todo lo de ELITE +</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Entrenador personal 2x semana</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Análisis corporal mensual</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Acceso a zona VIP</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Suplementación personalizada</li>
-                    <li><i data-lucide="check" class="w-4 h-4 inline mr-2 text-cyan-400"></i> Prioridad en clases especiales</li>
+                <ul class="space-y-4 mb-auto text-sm">
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#00f2fe]"></i> Todo lo de ELITE +</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#00f2fe]"></i> Entrenador personal 2x semana</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#00f2fe]"></i> Análisis corporal mensual</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#00f2fe]"></i> Acceso a zona VIP</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#00f2fe]"></i> Suplementación personalizada</li>
                 </ul>
-                <a href="https://wa.me/5493513536101" target="_blank" class="block text-center w-full py-4 rounded-full border border-cyan-400 text-cyan-400 font-bold hover:bg-cyan-400 hover:text-black transition uppercase">Elegir Plan</a>
+                <a href="https://wa.me/5493513536101" class="mt-8 cyber-btn block text-center py-4 rounded-[4px] font-bold">ELEGIR PLAN</a>
             </div>
         </div>
     </section>
-    <section id="galeria" class="py-24 max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-5xl font-black text-cyan-400 mb-12 uppercase italic tracking-tighter">Galería</h2>
+
+    <section id="galeria" class="py-24 max-w-7xl mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-tech font-black text-[#00f2fe] mb-16 text-center text-glow-cyan">
+            // GALERÍA
+        </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20"><img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77" class="w-full h-full object-cover"></div>
-            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48" class="w-full h-full object-cover"></div>
-            <div class="rounded-3xl overflow-hidden aspect-video border border-cyan-500/20"><img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f" class="w-full h-full object-cover"></div>
+            <div class="relative group overflow-hidden border border-[#00f2fe]/30 rounded-[4px]">
+                <div class="absolute inset-0 bg-[#00f2fe]/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=600" class="w-full h-64 object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-500">
+            </div>
+            <div class="relative group overflow-hidden border border-[#ff003c]/30 rounded-[4px]">
+                <div class="absolute inset-0 bg-[#ff003c]/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600" class="w-full h-64 object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-500">
+            </div>
+            <div class="relative group overflow-hidden border border-[#00f2fe]/30 rounded-[4px]">
+                <div class="absolute inset-0 bg-[#00f2fe]/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=600" class="w-full h-64 object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-500">
+            </div>
         </div>
     </section>
-    <section id="entrenadores" class="py-24 max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-5xl font-black text-red-600 mb-4 uppercase italic tracking-tighter">Nuestros Entrenadores</h2>
-        <p class="text-gray-400 mb-16">Profesionales certificados con años de experiencia para guiarte en tu transformación</p>
+
+    <section id="entrenadores" class="py-24 max-w-7xl mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-tech font-black text-[#ff003c] mb-4 text-center text-glow-red">
+            // ENTRENADORES
+        </h2>
+        <p class="text-gray-400 mb-16 text-center font-tech tracking-wider">Profesionales certificados con años de experiencia</p>
+        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass-card rounded-[40px] overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400" class="h-80 w-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="p-8">
-                    <h3 class="text-white text-2xl font-black mb-1">Carlos Mendoza</h3>
-                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Entrenamiento Funcional & CrossFit</p>
+            <div class="cyber-panel border border-white/5 rounded-xl overflow-hidden group">
+                <div class="overflow-hidden h-72">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=600" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6 border-t border-[#ff003c]/30">
+                    <h3 class="text-white font-tech text-xl font-bold mb-1 uppercase tracking-widest">Carlos Mendoza</h3>
+                    <p class="text-[#ff003c] font-tech text-[10px] uppercase font-bold tracking-widest mb-4">Funcional & Crossfit</p>
                     <p class="text-gray-500 text-sm">Certificado internacional con 8 años de experiencia</p>
                 </div>
             </div>
-            <div class="glass-card rounded-[40px] overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400" class="h-80 w-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="p-8">
-                    <h3 class="text-white text-2xl font-black mb-1">María Rodriguez</h3>
-                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Musculación & Nutrición Deportiva</p>
+            <div class="cyber-panel border border-white/5 rounded-xl overflow-hidden group">
+                <div class="overflow-hidden h-72">
+                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=600" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6 border-t border-[#ff003c]/30">
+                    <h3 class="text-white font-tech text-xl font-bold mb-1 uppercase tracking-widest">María Rodriguez</h3>
+                    <p class="text-[#ff003c] font-tech text-[10px] uppercase font-bold tracking-widest mb-4">Musculación & Nutrición</p>
                     <p class="text-gray-500 text-sm">Especialista en transformación corporal</p>
                 </div>
             </div>
-            <div class="glass-card rounded-[40px] overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400" class="h-80 w-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="p-8">
-                    <h3 class="text-white text-2xl font-black mb-1">Javier Torres</h3>
-                    <p class="text-red-500 font-bold text-xs uppercase mb-4">Entrenamiento de Alto Rendimiento</p>
+            <div class="cyber-panel border border-white/5 rounded-xl overflow-hidden group">
+                <div class="overflow-hidden h-72">
+                    <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?q=80&w=600" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6 border-t border-[#ff003c]/30">
+                    <h3 class="text-white font-tech text-xl font-bold mb-1 uppercase tracking-widest">Javier Torres</h3>
+                    <p class="text-[#ff003c] font-tech text-[10px] uppercase font-bold tracking-widest mb-4">Alto Rendimiento</p>
                     <p class="text-gray-500 text-sm">Ex-atleta profesional y coach certificado</p>
                 </div>
             </div>
@@ -235,56 +396,65 @@
     </section>
 
     <section id="contacto" class="py-24 max-w-7xl mx-auto px-6">
-        <h2 class="text-5xl font-black text-red-600 mb-16 uppercase italic tracking-tighter text-center">Contacto</h2>
+        <h2 class="text-4xl md:text-5xl font-tech font-black text-[#ff003c] mb-16 text-center text-glow-red">
+            // CONTACTO
+        </h2>
+        
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div class="space-y-6">
-                <div class="glass-card p-6 rounded-3xl flex gap-4 items-center">
-                    <i data-lucide="map-pin" class="text-cyan-400"></i>
+                <div class="cyber-panel p-6 rounded-xl flex gap-6 items-center border border-white/5">
+                    <i data-lucide="map-pin" class="w-8 h-8 text-[#00f2fe]"></i>
                     <div>
-                        <p class="text-gray-400 text-xs">Salta y Av. Córdoba 3212 - Córdoba</p>
-                        <a href="https://maps.app.goo.gl/sbQRr5Dy6NLcm7vK6" target="_blank" class="text-cyan-400 text-xs font-bold uppercase">Ver en Mapa</a>
+                        <p class="text-gray-500 font-tech text-[10px] tracking-widest mb-1">UBICACIÓN</p>
+                        <p class="text-white text-sm mb-2">Salta y Av. Córdoba 3212 - Córdoba</p>
+                        <a href="#" class="text-[#00f2fe] font-tech text-xs font-bold uppercase tracking-wider hover:text-glow-cyan">VER EN MAPA -></a>
                     </div>
                 </div>
-                <div class="glass-card p-6 rounded-3xl flex gap-4 items-center">
-                    <i data-lucide="phone" class="text-red-500"></i>
+                <div class="cyber-panel p-6 rounded-xl flex gap-6 items-center border border-white/5">
+                    <i data-lucide="phone" class="w-8 h-8 text-[#ff003c]"></i>
                     <div>
-                        <p class="text-gray-400 text-xs">+54 9 3513 53-6101</p>
-                        <a href="https://wa.me/5493513536101" target="_blank" class="text-red-500 text-xs font-bold uppercase">WhatsApp Directo</a>
+                        <p class="text-gray-500 font-tech text-[10px] tracking-widest mb-1">TELÉFONO</p>
+                        <p class="text-white text-sm mb-2">+54 9 3513 53-6101</p>
+                        <a href="https://wa.me/5493513536101" target="_blank" class="text-[#ff003c] font-tech text-xs font-bold uppercase tracking-wider hover:text-glow-red">WHATSAPP DIRECTO -></a>
                     </div>
                 </div>
-                <div class="glass-card p-6 rounded-3xl flex gap-4 items-center">
-                    <i data-lucide="instagram" class="text-pink-500"></i>
+                <div class="cyber-panel p-6 rounded-xl flex gap-6 items-center border border-white/5">
+                    <i data-lucide="instagram" class="w-8 h-8 text-[#b100ff]"></i>
                     <div>
-                        <p class="text-gray-400 text-xs">@spartan_gym_fit</p>
-                        <a href="https://www.instagram.com/spartan_gym_fit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-pink-500 text-xs font-bold uppercase">Instagram</a>
+                        <p class="text-gray-500 font-tech text-[10px] tracking-widest mb-1">INSTAGRAM</p>
+                        <p class="text-white text-sm mb-2">@spartan_gym_fit</p>
+                        <a href="https://www.instagram.com/spartan_gym_fit" target="_blank" class="text-[#b100ff] font-tech text-xs font-bold uppercase tracking-wider" style="text-shadow: 0 0 10px #b100ff;">SEGUINOS -></a>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-red-600 rounded-[40px] p-10 text-center flex flex-col items-center justify-center shadow-2xl">
-                <i data-lucide="send" class="w-16 h-16 text-white mb-6"></i>
-                <h3 class="text-4xl font-black italic uppercase mb-4 text-white">¿Listo para el cambio?</h3>
-                <p class="text-white/90 mb-10">Contactanos hoy o accedé a tu plan de entrenamiento personalizado</p>
-                <div class="w-full space-y-4">
-                    <a href="https://wa.me/5493513536101" target="_blank" 
-                       class="block w-full py-4 bg-[#25d366] text-white font-black rounded-full shadow-lg uppercase tracking-wider hover:scale-105 transition-transform flex items-center justify-center gap-2">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i> Escribinos por WhatsApp
-                    </a>
-                    <a href="https://www.instagram.com/spartan_gym_fit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" 
-                       class="block w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-black rounded-full shadow-lg uppercase tracking-wider hover:scale-105 transition-transform flex items-center justify-center gap-2">
-                        <i data-lucide="instagram" class="w-5 h-5"></i> Seguinos en Instagram
-                    </a>
-                    <a href="https://spartancba.accesogym.com.ar/app/" target="_blank" 
-                       class="block w-full py-4 bg-white text-red-600 font-black rounded-full shadow-lg uppercase tracking-wider hover:scale-105 transition-transform flex items-center justify-center gap-2">
-                        <i data-lucide="dumbbell" class="w-5 h-5"></i> Ingresar a Mi Rutina
-                    </a>
+            <div class="bg-cyber-red p-10 flex flex-col items-center justify-center text-center relative overflow-hidden rounded-[8px]">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative z-10 w-full">
+                    <i data-lucide="send" class="w-12 h-12 text-white mx-auto mb-6 opacity-80"></i>
+                    <h3 class="text-3xl md:text-4xl font-tech font-black uppercase mb-4 text-white tracking-widest drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">
+                        ¿LISTO PARA EL<br>CAMBIO?
+                    </h3>
+                    <p class="text-white mb-10 text-sm font-medium drop-shadow-md">Contactanos hoy o accedé a tu plan de entrenamiento personalizado</p>
+                    
+                    <div class="w-full space-y-4">
+                        <a href="https://wa.me/5493513536101" target="_blank" class="block w-full py-4 bg-[#25d366] text-black font-tech font-bold text-sm uppercase tracking-widest hover:scale-[1.02] transition-transform flex items-center justify-center gap-3 rounded-[4px] shadow-[0_0_15px_rgba(37,211,102,0.5)]">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> ESCRIBINOS POR WHATSAPP
+                        </a>
+                        <a href="https://www.instagram.com/spartan_gym_fit" target="_blank" class="block w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-tech font-bold text-sm uppercase tracking-widest hover:scale-[1.02] transition-transform flex items-center justify-center gap-3 rounded-[4px] shadow-[0_0_15px_rgba(177,0,255,0.5)]">
+                            <i data-lucide="instagram" class="w-4 h-4"></i> SEGUINOS EN INSTAGRAM
+                        </a>
+                        <a href="https://spartancba.accesogym.com.ar/app/" target="_blank" class="block w-full py-4 bg-white text-[#ff003c] font-tech font-bold text-sm uppercase tracking-widest hover:scale-[1.02] transition-transform flex items-center justify-center gap-3 rounded-[4px] shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+                            <i data-lucide="dumbbell" class="w-4 h-4"></i> INGRESAR A MI RUTINA
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 bg-black border-t border-cyan-500/10 text-center text-gray-600 text-[10px] uppercase">
-        © 2026 Spartan Smart Gym. Todos los derechos reservados.
+    <footer class="py-8 bg-[#020202] border-t border-[#00f2fe]/10 text-center text-gray-600 font-tech text-[10px] uppercase tracking-widest">
+        © 2026 SPARTAN SMART GYM. SYSTEM ONLINE.
     </footer>
 
     <script>
